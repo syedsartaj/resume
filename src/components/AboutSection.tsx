@@ -1,5 +1,6 @@
 'use client';
 import React from 'react';
+import Image from 'next/image';
 
 const AboutSection = () => {
   const styles: { [key: string]: React.CSSProperties } = {
@@ -106,8 +107,13 @@ const AboutSection = () => {
 
         <div style={styles.intro}>
           <div style={styles.image}>
-            <img src="/hero-image.jpg" alt="About Me" style={{ width: '100%', height: '100%', borderRadius: '0.5rem',       objectFit: 'cover', display: 'block', }} />    
-          </div>
+<Image 
+  src="/hero-image.jpg" 
+  alt="About Me" 
+  width={300} 
+  height={300} 
+  style={{ borderRadius: '0.5rem', objectFit: 'cover' }} 
+/>          </div>
 
           <div style={styles.textContent}>
             <p style={styles.paraone}>

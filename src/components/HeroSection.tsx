@@ -113,7 +113,7 @@ const AboutSection = () => {
       marginRight: '2rem',
     },
     menuItemsHovered: {
-      fontSize: '0.9rem',
+      fontSize: 'rem',
     },
   };
 
@@ -146,7 +146,7 @@ const AboutSection = () => {
         </a>
 
 <a
-  href="https://mail.google.com/mail/?view=cm&fs=1&to=syedsartajahmed01@gmail.com&su=Let's%20Connect&body=Hi%20Sartaj,"
+  href={`https://mail.google.com/mail/?view=cm&fs=1&to=syedsartajahmed01@gmail.com&su=Let%27s%20Connect&body=Hi%20Sartaj,`}
   target="_blank"
   rel="noopener noreferrer"
   style={{ display: 'inline-block', textDecoration: 'none' }}
@@ -160,10 +160,10 @@ const AboutSection = () => {
       </div>
 
       <div style={styles.container}>
-        <h2 style={styles.heading}>Hi, I'm Sartaj</h2>
+<h2 style={styles.heading}>Hi, I&#39;m Sartaj</h2>
         <p style={styles.paragraphs}>AI/ML Engineer | Full Stack Engineer</p>
         <p style={styles.paragraph}>
-          {"A developer with a passion for solving problems with data, design, and engineering."}
+          A developer with a passion for solving problems with data, design, and engineering.
         </p>
 
         <button 

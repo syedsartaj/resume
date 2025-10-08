@@ -15,30 +15,6 @@ export default function ProjectsSection() {
         'Built a React Native + Firebase app where students can chat with AI for study doubts.',
       link: '#',
     },
-    {
-      title: 'Hodor Project',
-      description:
-        'Developed an event tracking and task automation system integrated with ClickUp, Recoil, and RudderStack.',
-      link: '#',
-    },
-    {
-      title: 'Parents Portal',
-      description:
-        'Built a React Native + Firebase app where students can chat with AI for study doubts.',
-      link: '#',
-    },
-    {
-      title: 'Hodor Project',
-      description:
-        'Developed an event tracking and task automation system integrated with ClickUp, Recoil, and RudderStack.',
-      link: '#',
-    },
-    {
-      title: 'Parents Portal',
-      description:
-        'Built a React Native + Firebase app where students can chat with AI for study doubts.',
-      link: '#',
-    },
   ];
 
   const sectionStyle: React.CSSProperties = {

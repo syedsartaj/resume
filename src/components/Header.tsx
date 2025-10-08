@@ -1,12 +1,8 @@
 import { useState } from 'react';
 
 export default function Header() {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [theme, setTheme] = useState(false);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null); // Track which item is hovered
 
-  const toggleMenu = () => setMenuOpen(!menuOpen);
-  const toggleTheme = () => setTheme(!theme);
 
   const handleMouseEnter = (index: number) => {
     setHoveredIndex(index);
@@ -24,8 +20,8 @@ export default function Header() {
       justifyContent: 'space-around',
       left: 0,
       zIndex: 1000,
-      backgroundColor: theme ? '#111' : '#fff',
-      color: theme ? '#fff' : '#111',
+      backgroundColor:'#fff',
+      color: '#111',
       transition: 'all 0.3s ease',
     },
     nav: {
@@ -46,8 +42,8 @@ export default function Header() {
       display: 'flex',
       flexDirection: 'row',
       justifyContent: 'flex-end',
-      backgroundColor: theme ? '#111' : '#fff',
-      color: theme ? '#fff' : '#111',
+      backgroundColor: '#fff',
+      color: '#111',
       padding: '0.6rem 1.2rem',
     },
     menuItems: {
@@ -55,7 +51,7 @@ export default function Header() {
       flexDirection: 'row',
 
       textDecoration: 'none',
-      color: theme ? '#fff' : '#111',
+      color: '#111',
       fontSize: '0.85rem',
       transition: 'color 0.3s ease', // Smooth transition for color
       padding: '0.5rem',
