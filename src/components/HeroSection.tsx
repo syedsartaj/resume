@@ -163,7 +163,7 @@ const AboutSection = () => {
         <h2 style={styles.heading}>Hi, I'm Sartaj</h2>
         <p style={styles.paragraphs}>AI/ML Engineer | Full Stack Engineer</p>
         <p style={styles.paragraph}>
-          A developer with a passion for solving problems with data, design, and engineering.
+          {"A developer with a passion for solving problems with data, design, and engineering."}
         </p>
 
         <button 
