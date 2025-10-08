@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
 import { useState } from 'react';
-import { FaMailBulk, FaWhatsapp, FaLinkedin, FaGithub, FaChevronRight,FaMouse,FaArrowDown } from 'react-icons/fa';
+import { FaEnvelope, FaWhatsapp, FaLinkedin, FaGithub, FaChevronRight,FaMouse,FaArrowDown } from 'react-icons/fa';
 
 const AboutSection = () => {
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null); // Track which item is hovered
@@ -151,7 +151,7 @@ const AboutSection = () => {
   rel="noopener noreferrer"
   style={{ display: 'inline-block', textDecoration: 'none' }}
 >
-  <FaMailBulk style={styles.nav__icon} />
+  <FaEnvelope style={styles.nav__icon} />
 </a>
 
         <a href="https://wa.me/971583070147" target="_blank" rel="noopener noreferrer">
@@ -197,4 +197,3 @@ const AboutSection = () => {
 };
 
 export default AboutSection;
-

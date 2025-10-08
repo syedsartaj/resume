@@ -62,7 +62,12 @@ export default function Footer() {
             onMouseLeave={(e) => (e.currentTarget.style.color = '#fff')}
           />
         </a>
-        <a href="mailto:syedsartajahmed01@gmail.com">
+<a
+  href={`https://mail.google.com/mail/?view=cm&fs=1&to=syedsartajahmed01@gmail.com&su=Let%27s%20Connect&body=Hi%20Sartaj,`}
+  target="_blank"
+  rel="noopener noreferrer"
+  style={{ display: 'inline-block', textDecoration: 'none' }}
+>
           <FaEnvelope
             style={styles.icon}
             onMouseEnter={(e) => (e.currentTarget.style.color = '#e05957')}
