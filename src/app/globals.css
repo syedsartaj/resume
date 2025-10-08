@@ -1,0 +1,108 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+    font-family: Arial, sans-serif;
+}
+
+
+/* styles/globals.css */
+
+/* Basic header styling */
+.header {
+  background-color: white;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+#nav-menu {
+  flex-direction: column;
+}
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+.nav__logo {
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+
+.nav__menu {
+  display: flex;
+  gap: 20px;
+}
+
+.nav__link {
+  color: #333;
+  text-decoration: none;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+}
+
+.nav__icon {
+  margin-right: 0.5rem;
+}
+
+.nav__btns {
+  display: flex;
+  align-items: center;
+}
+
+.nav__toggle {
+  cursor: pointer;
+}
+
+.nav__close {
+  display: none;
+  cursor: pointer;
+}
+
+/* Add more styles for active state, theme switcher, etc. */
+
+/* Mobile responsiveness */
+@media screen and (max-width: 768px) {
+  .nav__menu {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .nav__menu.active {
+    display: flex;
+  }
+
+  .nav__close {
+    display: block;
+  }
+
+  .nav__toggle {
+    display: block;
+  }
+}
