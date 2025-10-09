@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { FaBars, FaTimes } from "react-icons/fa";
 
 export default function Header() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
@@ -26,9 +27,7 @@ export default function Header() {
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle Menu"
         >
-          <span></span>
-          <span></span>
-          <span></span>
+          {menuOpen ? <FaTimes /> : <FaBars />}
         </button>
 
         {/* Navigation Links */}
@@ -164,6 +163,7 @@ export default function Header() {
 
           .hamburger {
             display: flex;
+            color: #111;
           }
         }
       `}</style>

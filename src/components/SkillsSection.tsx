@@ -1,15 +1,28 @@
 'use client';
-import React from 'react';
+import React, { useState } from 'react';
 import Lottie from 'lottie-react';
 import animationData from '../../public/Background looping animation.json';
 
 export default function SkillsSection() {
-  const skills = [
-    'React.js', 'Next.js', 'Node.js', 'NestJS', 'TypeScript',
-    'Python', 'AWS', 'Firebase', 'MongoDB', 'PostgreSQL',
-    'Machine Learning', 'RudderStack',
-  ];
+  // ✅ Categorized Skills
+  const categorizedSkills: Record<string, string[]> = {
+    Frontend: ['HTML', 'CSS', 'JavaScript', 'React', 'NextJs', 'React Native'],
+    Backend: ['Node.js', 'NestJS', 'REST APIs', 'SaaS Solutions', '.NET'],
+    Cloud: ['AWS', 'Google Cloud Platform', 'Firebase'],
+    Databases: ['MongoDB', 'Firestore', 'SQL', 'NoSQL'],
+    ML_DS: ['Python', 'Machine Learning', 'Algorithms', 'Predictive Analysis'],
+    Tools: ['Git', 'GitHub', 'Bitbucket', 'Docker', 'Eclipse', 'VS Code', 'PyCharm'],
+    Analytics: ['Mixpanel', 'RudderStack', 'MoEngage']
+  };
 
+  const [selectedCategory, setSelectedCategory] = useState<string>('All');
+
+  // ✅ Combine all skills when "All" is selected
+  const allSkills = Object.values(categorizedSkills).flat();
+  const displayedSkills =
+    selectedCategory === 'All' ? allSkills : categorizedSkills[selectedCategory] || [];
+
+  // ✅ Styles
   const sectionStyle: React.CSSProperties = {
     position: 'relative',
     width: '100%',
@@ -20,8 +33,8 @@ export default function SkillsSection() {
     justifyContent: 'center',
     overflow: 'hidden',
     padding: '5rem 1.5rem',
-    boxSizing: 'border-box',
     backgroundColor: '#fceeee',
+    boxSizing: 'border-box',
   };
 
   const lottieContainerStyle: React.CSSProperties = {
@@ -38,19 +51,34 @@ export default function SkillsSection() {
     fontWeight: 800,
     color: '#1a202c',
     textAlign: 'center',
-    marginBottom: '3.5rem',
-    zIndex: 10,
-    position: 'relative',
+    marginBottom: '2rem',
   };
+
+  const filterBarStyle: React.CSSProperties = {
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
+    gap: '0.75rem',
+    marginBottom: '2.5rem',
+  };
+
+  const filterButtonStyle: (active: boolean) => React.CSSProperties = (active) => ({
+    padding: '0.6rem 1.2rem',
+    borderRadius: '25px',
+    border: active ? '2px solid #e05957' : '2px solid #ddd',
+    backgroundColor: active ? '#e05957' : '#fff',
+    color: active ? '#fff' : '#333',
+    fontWeight: 600,
+    cursor: 'pointer',
+    transition: 'all 0.3s ease',
+  });
 
   const gridStyle: React.CSSProperties = {
     display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(120px, 1fr))',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))',
     gap: '1.5rem',
-    maxWidth: '1200px',
+    maxWidth: '1100px',
     width: '100%',
-    zIndex: 10,
-    position: 'relative',
   };
 
   const skillCardStyle: React.CSSProperties = {
@@ -61,74 +89,73 @@ export default function SkillsSection() {
     color: '#1a202c',
     fontWeight: 600,
     borderRadius: '1rem',
-    padding: '1.5rem',
+    padding: '1.2rem',
     boxShadow: '0 4px 10px rgba(0,0,0,0.1)',
     transition: 'all 0.3s ease-in-out',
-    cursor: 'default',
   };
 
   const descriptionStyle: React.CSSProperties = {
     textAlign: 'center',
     color: '#4a5568',
-    marginTop: '2.5rem',
+    marginTop: '2rem',
     maxWidth: '800px',
     fontSize: '1rem',
     lineHeight: 1.6,
-    zIndex: 10,
-    position: 'relative',
   };
 
   return (
     <section style={sectionStyle} id="skills">
-      {/* Lottie Background */}
+      {/* ✅ Animated Background */}
       <div style={lottieContainerStyle}>
-        <Lottie
-          animationData={animationData}
-          loop
-          autoplay
-          style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-        />
+        <Lottie animationData={animationData} loop autoplay />
       </div>
 
-      {/* Heading */}
+      {/* ✅ Heading */}
       <h2 style={headingStyle}>My Skills</h2>
 
-      {/* Skills Grid */}
+      {/* ✅ Filter Buttons */}
+      <div style={filterBarStyle}>
+        {['All', ...Object.keys(categorizedSkills)].map((category) => (
+          <button
+            key={category}
+            style={filterButtonStyle(selectedCategory === category)}
+            onClick={() => setSelectedCategory(category)}
+          >
+            {category === 'ML_DS' ? 'ML & DS' : category}
+          </button>
+        ))}
+      </div>
+
+      {/* ✅ Skills Grid */}
       <div style={gridStyle}>
-        {skills.map((skill, index) => (
+        {displayedSkills.map((skill) => (
           <div
             key={skill}
-            style={{
-              ...skillCardStyle,
-            }}
-            onMouseEnter={e =>
-              (e.currentTarget.style.transform = 'scale(1.05)')
-            }
-            onMouseLeave={e =>
-              (e.currentTarget.style.transform = 'scale(1)')
-            }
+            style={skillCardStyle}
+            onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.05)')}
+            onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}
           >
             {skill}
           </div>
         ))}
       </div>
 
-      {/* Description */}
+      {/* ✅ Description */}
       <p style={descriptionStyle}>
-        These are some of the technologies and tools I’ve been working with
-        recently.
+        Select a category to explore my expertise. These are tools and technologies I use frequently.
       </p>
 
-      {/* Responsive styles */}
+      {/* ✅ Responsive CSS */}
       <style>{`
         @media (max-width: 768px) {
-          h2 { font-size: 2rem !important; margin-bottom: 2rem !important; }
+          h2 { font-size: 2rem !important; }
+          button { font-size: 0.9rem !important; padding: 0.5rem 1rem !important; }
           div[style*="grid"] { gap: 1rem !important; }
-          div[style*="padding: 1.5rem"] { padding: 1rem !important; font-size: 0.9rem !important; }
+          div[style*="padding: 1.2rem"] { padding: 1rem !important; font-size: 0.9rem !important; }
         }
         @media (max-width: 480px) {
-          h2 { font-size: 1.75rem !important; }
-          p { font-size: 0.875rem !important; }
+          h2 { font-size: 1.6rem !important; }
+          p { font-size: 0.85rem !important; }
         }
       `}</style>
     </section>
