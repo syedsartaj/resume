@@ -23,17 +23,20 @@ const AboutSection = () => {
       flexDirection: 'row',
       alignItems: 'center',
       justifyContent: 'space-between',
+            flexWrap: 'wrap', // ✅ allows better layout on small screens
     },
     container: {
       flexBasis: '30%',
       maxWidth: '1200px',
       margin: '0 auto',
-      alignItems: 'flex-start',
+      alignItems: 'center',
     },
     heading: {
       fontSize: '3rem',
       fontWeight: 700,
       color: '#1a202c',
+            whiteSpace: 'nowrap', // ✅ ensures "Hi, I'm Sartaj" stays on one line
+
     },
     paragraph: {
       marginTop: '1rem',
@@ -47,7 +50,7 @@ const AboutSection = () => {
       fontSize: '1.15rem',
       fontWeight: 600,
       color: '#4a5568',
-      maxWidth: '48rem',
+      maxWidth: '58rem',
       margin: '0 auto',
       marginBottom: '0.5rem',
     },
@@ -115,6 +118,10 @@ const AboutSection = () => {
     menuItemsHovered: {
       fontSize: 'rem',
     },
+        buttonContainer: {
+      marginTop: '2rem',
+    },
+    
   };
 
   const handleScrollToContact = () => {
@@ -165,7 +172,20 @@ const AboutSection = () => {
         <p style={styles.paragraph}>
           A developer with a passion for solving problems with data, design, and engineering.
         </p>
-
+            <div style={styles.buttonContainer}>
+<a href="/Resume.pdf" download style={{ textDecoration: 'none' }}>
+  <button
+    style={{
+      ...styles.button,
+      backgroundColor: isHovered ? '#c94b4a' : '#e05957',
+      transform: isHovered ? 'scale(1.03)' : 'scale(1)',
+    }}
+    onMouseEnter={() => setIsHovered(true)}
+    onMouseLeave={() => setIsHovered(false)}
+  >
+    Download Resume
+  </button>
+</a></div>
         <button 
                         style={{
                   ...styles.button,
